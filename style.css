@@ -1,16 +1,28 @@
 :root{
-    --padLeft:1rem;
+    --padLeft:2.5rem;
+}
+
+@font-face {
+    font-family: Norse-Bold;
+    src: url(fonts/Norse-Bold.otf);
 }
 input, button, fieldset{
     appearance: none;
     border: none;
     padding: 0;
     margin: 0;
+    border:none;
+}
+a{
+    text-decoration: none;
+    color: #A64F53;
 }
 
 .page-container{
     display: flex;
     height: 100vh;
+    width: 100vw;
+    
 }
 
 .side-container{
@@ -18,10 +30,8 @@ input, button, fieldset{
     background-color: black;
     color: black;
     width: 33%;
-    /* height: 100%; */
     background-image: url(images/herons.png);
     background-repeat: no-repeat;
-    /* background-position-x:left; */
     align-items: flex-start;
     position: relative;
     
@@ -36,19 +46,19 @@ input, button, fieldset{
     width: 100%;
     justify-content: center;
     position: absolute;
-    top: 25%;
-    
+    top: calc(25% + .75rem);
+
 }
 
 .logo{
-    /* width:100%; */
     height: 75%;
     color: white;
 }
 
 .logo-name{
     color: white;
-    font-size: 4em;
+    font-size: 6em;
+    font-family: Norse-Bold, "sans-serif";
 }
 
 .right-container{
@@ -57,76 +67,130 @@ input, button, fieldset{
     width: 66%;
     flex-wrap: wrap;
     background-color: #E7DCCC;
-    /* padding-left: 1rem; */
     justify-content: center;
+    /* position: absolute; */
     
 }
 
 form{
     display: flex;
     flex-direction: column;
+
 }
 
 fieldset{
     display: flex;
     flex-wrap: wrap;
-    width: 80%;
-    gap:20px;
-    margin-left:var(--padLeft);
+    gap:50px;
+    box-shadow: 0px 3px 5px 5px #8B766950;
+    background-color: #EAE6D7;
+    padding: 50px 20% 50px var(--padLeft);
 
+}
+p, label, button{
+    font-family: 'Josefin Sans', sans-serif;
+}
+
+label, button, input{
+    font-size: 1rem;
 }
 
 p{
     display: flex;
     flex-direction: column;
     width:40%;
+    margin: 0;
+    
 }
 
 button{
-    background-color: #473D39;
+    background-color: #A64F53;
     color:white;
-    font-size: 1rem;
     max-width: 200px;
     height: 50px;
     border-radius: 10px;
     margin-left: var(--padLeft);
+    margin-top: 2rem;
 }
+
 
 input{
     border-radius: 10px;
     width: 100%;
     height: 40px;
-    border: 1px solid #473D39;
-    font-size: 1rem;
     padding-left:5px;
+    box-sizing: border-box;
 }
 
+
 .sign-up-descr{
-    width: 100%;
-    max-width: 70ch;
+    width: 75%;
     font-size: 1.5rem;
-    margin-left: var(--padLeft);
+    padding-left: var(--padLeft);
+    padding-bottom: 2rem;
+    margin: 0;
 }
 
 .reminder{
+    flex-direction: row;
     margin-left: var(--padLeft);
+    margin-top: 2rem;
+    gap: 10px;
 }
 
 label{
-    font-size: 1rem;
-}
-
-
-input:invalid{
-    border: 1px solid red;
+    margin-bottom:5px;
 }
 
 #email + span{
     position: relative;
+    visibility: hidden;
 }
-#email + span::before{
+#email:invalid:focus + span::before{
     position: absolute;
-    content:"hello";
-    /* top: 10px; */
+    content:"Please match the pattern provided";
+    top: 5px;
+    color: red;
+    visibility: visible;
+}
+
+input:focus{
+    background-color: #EBEBEA;
+    outline: 2px solid black
+}
+
+input:valid:focus{
+    outline:2px solid green;
+}
+
+input:invalid:focus{
+    outline:2px solid red;
+}
+
+input:invalid:focus, input.error:focus{
+    outline: 2px solid red;
+}
+
+.error{
+    outline: 2px solid red;
+    /* border: 2px solid red; */
+}
+
+#check-pass + span{
+    position: relative;
+    /* visibility: hidden; */
+}
+
+#check-pass:focus + span::before{
+    position: absolute;
+    content:"Passwords do not match";
+    top: 5px;
+    color: red;
+    /* visibility: visible; */
+}
+
+
+#check-pass:focus:valid + span::before{
+    visibility: hidden;
 }
 

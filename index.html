@@ -6,8 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sign Up Form</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap" rel="stylesheet">
 </head>
-
 <body>
 
     <div class="page-container">
@@ -27,18 +29,18 @@
                 <fieldset>
                     <p>
                         <label for="first-name">First Name</label>
-                        <input type="text" name="first-name" id="first-name">
+                        <input type="text" name="first-name" id="first-name" required>
                     </p>
 
 
                     <p>
                         <label for="last-name">Last Name</label>
-                        <input type="text" name="last-name" id="last-name">
+                        <input type="text" name="last-name" id="last-name" required>
                     </p>
 
                     <p>
                         <label for="email">Email</label>
-                        <input type="email" name="email" id="email" placeholder="myemail@mail.com">
+                        <input type="email" name="email" id="email" placeholder="myemail@mail.com" required>
                         <span></span>
                     </p>
                     <p>
@@ -47,12 +49,13 @@
                     </p>
                     <p>
                         <label for="passw">Password</label>
-                        <input type="password" name="passw" id="passw">
+                        <input type="password" name="passw" id="passw" required>
                     </p>
 
                     <p>
                         <label for="check-pass">Confirm Password</label>
-                        <input type="password" id="check-pass">
+                        <input type="password" id="check-pass" required>
+                        <span class="erorrMsg"></span>
                     </p>
 
                 </fieldset>
@@ -64,3 +67,5 @@
         </div>
     </div>
 </body>
+<script src="script.js"></script>
+</html>
